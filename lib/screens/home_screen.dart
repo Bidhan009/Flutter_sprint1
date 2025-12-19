@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Game Zone")),
+      appBar: AppBar(title: const Text("Game Zone")),
       body: lstBottomScreen[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -36,10 +36,11 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.bookmark),
             label: 'Bookmarks',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
-        backgroundColor: Color(0xFFFF3D71),
-        selectedItemColor: Colors.blue,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor: Colors.white70,
         currentIndex: _selectedIndex,
         onTap: (index) {
           setState(() {
@@ -48,6 +49,5 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
     );
-    ;
   }
 }
