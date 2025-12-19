@@ -133,6 +133,11 @@ class HomeBottomScreen extends StatelessWidget {
                     price: "Rs. 4,499",
                     image: "assets/images/GamingPc.png",
                   ),
+                  _ProductCard(
+                    title: "ps5",
+                    price: "RS 6,999",
+                    image: "assets/images/ps5.png",
+                  ),
                 ],
               ),
             ),
