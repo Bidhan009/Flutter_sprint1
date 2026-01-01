@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gamezone_flutter/screens/bottom_screen/about_bottom_screen.dart';
-import 'package:gamezone_flutter/screens/bottom_screen/cart_bottom_screen.dart';
-import 'package:gamezone_flutter/screens/bottom_screen/home_bottom_screen.dart';
-import 'package:gamezone_flutter/screens/bottom_screen/profile_bottom_screen.dart';
+import 'package:gamezone_flutter/features/home/presentation/view/bottom_view/about_bottom_screen.dart';
+import 'package:gamezone_flutter/features/home/presentation/view/bottom_view/cart_bottom_screen.dart';
+import 'package:gamezone_flutter/features/home/presentation/view/bottom_view/home_bottom_screen.dart';
+import 'package:gamezone_flutter/features/home/presentation/view/bottom_view/profile_bottom_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

@@ -13,8 +13,7 @@ ThemeData getApplicationTheme() {
     // Color scheme
     colorScheme: const ColorScheme.dark(
       primary: Color(0xFF1F1F3A), // Deep gaming blue
-      secondary: Color(0xFFFF3D71), // Neon pink
-      background: Color(0xFF0A0A12),
+      secondary: Color(0xFFFF3D71),
       surface: Color(0xFF1A1A2E),
       error: Color(0xFFFF4C4C),
     ),

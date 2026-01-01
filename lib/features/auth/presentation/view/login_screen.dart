@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:gamezone_flutter/app/di/di.dart';
+import 'package:gamezone_flutter/features/auth/domain/use_case/login_use_case.dart';
 import 'register_screen.dart';
-import 'home_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  // It is good practice to dispose them to save memory
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +43,12 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 40),
 
-              // Email
+              // username
               TextField(
+                controller: _usernameController,
                 decoration: InputDecoration(
-                  labelText: "Email",
-                  prefixIcon: const Icon(Icons.email),
+                  labelText: "username",
+                  prefixIcon: const Icon(Icons.person),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -40,6 +58,7 @@ class LoginScreen extends StatelessWidget {
 
               // Password
               TextField(
+                controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: "Password",
@@ -62,10 +81,30 @@ class LoginScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (_) => const HomeScreen()),
+                  onPressed: () async {
+                    // 1. Get the UseCase from the Locator
+                    final loginUseCase = locator<LoginUseCase>();
+
+                    // 2. Call the logic
+                    final result = await loginUseCase.call(
+                      _usernameController.text,
+                      _passwordController.text,
+                    );
+
+                    // 3. Handle the result
+                    result.fold(
+                      (failure) {
+                        // Show error message
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(failure.message)),
+                        );
+                      },
+                      (_) {
+                        // Navigate to Home
+                        Future.microtask(() {
+                          Navigator.pushReplacementNamed(context, '/home');
+                        });
+                      },
                     );
                   },
                   child: const Text("Login"),
