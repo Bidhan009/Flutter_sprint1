@@ -1,6 +1,9 @@
-# flutter_sprint1
+# GameZone_flutter
 
-A new Flutter project.
+A Modern Flutter Mobile App for Gaming Accessories, Consoles, and Game Sales.
+
+# Description:
+A sleek Flutter-based e-commerce app designed for gamers to explore and purchase gaming accessories, consoles, and digital games. Implements Clean Architecture with modular feature separation and MVVM pattern for scalability and easy maintenance. Users can register/login, browse and filter products by category, view detailed product pages with images and specifications, add items to cart, manage wishlists, and securely complete purchases through integrated payment gateways. Includes user profile management, order history tracking, and real-time stock updates. Supports offline access with local caching, and token-based secure authentication with session refresh for a seamless and reliable shopping experience.
 
 ## Getting Started
 
