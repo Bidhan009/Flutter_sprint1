@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gamezone_flutter/theme/theme.dart';
-import 'screens/splash_screen.dart';
-import 'screens/onboarding_screen.dart';
-import 'screens/login_screen.dart';
-import 'screens/register_screen.dart';
-import 'screens/home_screen.dart';
+import 'package:gamezone_flutter/app/theme/theme.dart';
+import '../features/splash/presentation/view/splash_screen.dart';
+import '../features/onboarding/presentation/view/onboarding_screen.dart';
+import '../features/auth/presentation/view/login_screen.dart';
+import '../features/auth/presentation/view/register_screen.dart';
+import '../features/home/presentation/view/home_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
